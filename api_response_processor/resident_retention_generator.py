@@ -3,7 +3,7 @@ import copy
 import requests
 
 from config import constants
-
+import streamlit as st
 from api_response_processor import helpers, data_classes
 
 def get_resident_retention(property_id):
@@ -49,7 +49,7 @@ def get_expiring_and_renewals(resp: dict) -> data_classes.ResidentRetentionSumma
         renewals=renewals
     )
 
-
+@st.cache_data(ttl="1h")
 def build_resident_retention(property_id):
     rr = get_resident_retention(property_id)
     print("Calculated the resident retention summary for " + f"{property_id}")
