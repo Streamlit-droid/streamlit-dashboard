@@ -5,6 +5,7 @@ from api_response_processor import helpers, data_classes
 import copy
 from config import constants
 import requests
+import streamlit as st
 
 def get_comparative_delinquency(property_id, month):
     headers = helpers.get_headers()
@@ -92,6 +93,7 @@ def _extract_rent_metrics(resp: dict[str, Any]) -> dict[str, Optional[int]]:
         "collected": row.get("total_allocations_0"),
     }
 
+@st.cache_data(ttl="1h")
 def generate_rent_billed_collected_summary(property_id) -> data_classes.RentSummaryForCurrentAndLastTwoMonths:
     three_months_mm_yyyy = get_three_months_mm_yyyy()
 
