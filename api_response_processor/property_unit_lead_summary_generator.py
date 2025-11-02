@@ -131,7 +131,7 @@ def build_leads_summary(api_response_current_wk: dict,
         week_before_last_lease_approved_count=prev2["approved"],
     )
 
-@st.cache_data(ttl="1h")
+@st.cache_data(ttl="5h")
 def generate_property_unit_lead_summary(property_id):
     week_dates = helpers.get_week_boundaries_fridays()
     box_score_report_current_wk = get_box_score(property_id, week_dates["last_saturday"], week_dates["today"])
