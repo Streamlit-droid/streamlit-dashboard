@@ -138,7 +138,7 @@ def cardify(fig):
 # DEMO DATA (replace with your real instances)
 # =========================
 def create_demo_models():
-    property_id = 100082999 #4060 preferred place
+    property_id = 100092713 #The lanes at oslo
     (all_property_summary,
      all_unit_summary,
      leads_summary_for_three_weeks) = property_unit_lead_summary_generator.generate_property_unit_lead_summary(property_id)
@@ -311,7 +311,7 @@ def main():
     # Replace the following line with your real dataclass instances
     ps, us, resident_retent3, rent3, dq3, leads3 = create_demo_models()
 
-    st.title("🏢 Property Dashboard for 4060 Preferred Place")
+    st.title("🏢 Property Dashboard for The Lanes At Oslo")
 
     t1, t2, t3 = st.tabs(["Overview", "Operations", "Resident Retention"])
     with t1:
