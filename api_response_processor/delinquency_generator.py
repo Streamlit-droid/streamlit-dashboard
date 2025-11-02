@@ -47,7 +47,7 @@ def sum_delinquency_buckets(api_response: dict[str, Any]) -> data_classes.Delinq
         month_before_last_delinquency = bucket_sum("ninety_days")
     )
 
-@st.cache_data(ttl="1h")
+@st.cache_data(ttl="4h")
 def generate_delinquency_report(property_id) -> data_classes.DelinquencyForThreeMonths:
     resident_aged_receivables = get_resident_aged_receivables(property_id)
     print("Calculated the delinquency summary for " + f"{property_id}")
